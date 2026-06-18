@@ -1,0 +1,8 @@
+C:\Users\aniku\Desktop\SeaBattleCpp\SeaBattleCpp\x64\Debug\SeaBattleCpp.vcxproj.AssemblyReference.cache
+C:\Users\aniku\Desktop\SeaBattleCpp\SeaBattleCpp\x64\Debug\SeaBattleCpp.ChooseModeForm.resources
+C:\Users\aniku\Desktop\SeaBattleCpp\SeaBattleCpp\x64\Debug\SeaBattleCpp.MainForm.resources
+C:\Users\aniku\Desktop\SeaBattleCpp\SeaBattleCpp\x64\Debug\SeaBattleCpp.vcxproj.GenerateResource.cache
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\x64\Debug\SeaBattleCpp.vcxproj.AssemblyReference.cache
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\x64\Debug\SeaBattleCpp.ChooseModeForm.resources
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\x64\Debug\SeaBattleCpp.MainForm.resources
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\x64\Debug\SeaBattleCpp.vcxproj.GenerateResource.cache

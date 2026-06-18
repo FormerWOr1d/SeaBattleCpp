@@ -1,0 +1,1032 @@
+﻿  Program.cpp
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\ChooseModeForm.h(26,54): error C2039: "FixedDialog": не является членом "System::Windows::Forms::Form::FormBorderStyle".
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\ChooseModeForm.h(26,54): error C2065: FixedDialog: необъявленный идентификатор
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\ChooseModeForm.h(68,48): error C2039: "OK": не является членом "System::Windows::Forms::Form::DialogResult".
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\ChooseModeForm.h(68,48): error C2065: OK: необъявленный идентификатор
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\ChooseModeForm.h(73,48): error C2039: "Cancel": не является членом "System::Windows::Forms::Form::DialogResult".
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\ChooseModeForm.h(73,48): error C2065: Cancel: необъявленный идентификатор
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(19,42): error C3149: "array<CellState,10>": невозможно использовать здесь этот тип без "^" верхнего уровня
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(20,42): error C3149: "array<CellState,10>": невозможно использовать здесь этот тип без "^" верхнего уровня
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(38,60): error C3149: "array<CellState,10>": невозможно использовать здесь этот тип без "^" верхнего уровня
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(39,57): error C3149: "array<CellState,10>": невозможно использовать здесь этот тип без "^" верхнего уровня
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(40,62): error C3149: "array<CellState,10>": невозможно использовать здесь этот тип без "^" верхнего уровня
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(59,42): error C3149: "array<CellState,10>": невозможно использовать здесь этот тип без "^" верхнего уровня
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(22,22): error C4368: не удается определить "shipLengths" как член управляемого "GameEngine": смешанные типы не поддерживаются
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(23,51): error C4368: не удается определить "player1Ships" как член управляемого "GameEngine": смешанные типы не поддерживаются
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(24,51): error C4368: не удается определить "player2Ships" как член управляемого "GameEngine": смешанные типы не поддерживаются
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(25,23): error C4368: не удается определить "player1Sunk" как член управляемого "GameEngine": смешанные типы не поддерживаются
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(26,23): error C4368: не удается определить "player2Sunk" как член управляемого "GameEngine": смешанные типы не поддерживаются
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(33,18): error C4368: не удается определить "rng" как член управляемого "GameEngine": смешанные типы не поддерживаются
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(34,38): error C4368: не удается определить "randomAvailableShots" как член управляемого "GameEngine": смешанные типы не поддерживаются
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(35,38): error C4368: не удается определить "smartAvailableShots" как член управляемого "GameEngine": смешанные типы не поддерживаются
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(36,38): error C4368: не удается определить "smartTargetQueue" как член управляемого "GameEngine": смешанные типы не поддерживаются
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(71,111): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(73,5): error C2678: бинарный "=": не найден оператор, принимающий левый операнд типа "std::vector<int,std::allocator<int>>" (или приемлемое преобразование отсутствует)
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1544,26):
+      может быть "std::vector<int,std::allocator<int>> &std::vector<int,std::allocator<int>>::operator =(std::initializer_list<_Ty>)"
+          with
+          [
+              _Ty=int
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(73,5):
+          std::vector<int,std::allocator<int>> &std::vector<int,std::allocator<int>>::operator =(std::initializer_list<_Ty>): невозможно преобразовать указатель "this" из "std::vector<int,std::allocator<int>>" в "std::vector<int,std::allocator<int>> &"
+          with
+          [
+              _Ty=int
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(73,5):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1523,26):
+      или       "std::vector<int,std::allocator<int>> &std::vector<int,std::allocator<int>>::operator =(const std::vector<int,std::allocator<int>> &)"
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(73,5):
+          std::vector<int,std::allocator<int>> &std::vector<int,std::allocator<int>>::operator =(const std::vector<int,std::allocator<int>> &): невозможно преобразовать указатель "this" из "std::vector<int,std::allocator<int>>" в "std::vector<int,std::allocator<int>> &"
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(73,5):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(798,26):
+      или       "std::vector<int,std::allocator<int>> &std::vector<int,std::allocator<int>>::operator =(std::vector<int,std::allocator<int>> &&) noexcept(<expr>)"
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(73,5):
+          std::vector<int,std::allocator<int>> &std::vector<int,std::allocator<int>>::operator =(std::vector<int,std::allocator<int>> &&) noexcept(<expr>): невозможно преобразовать указатель "this" из "std::vector<int,std::allocator<int>>" в "std::vector<int,std::allocator<int>> &"
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(73,5):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(73,5):
+      при попытке сопоставить список аргументов "(std::vector<int,std::allocator<int>>, initializer list)"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(79,61): error C3149: "array<CellState,10>": невозможно использовать здесь этот тип без "^" верхнего уровня
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(79,20): error C2767: несоответствие размерности массива управляемый: требуется 10 аргументов, представлено 1
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(80,61): error C3149: "array<CellState,10>": невозможно использовать здесь этот тип без "^" верхнего уровня
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(80,20): error C2767: несоответствие размерности массива управляемый: требуется 10 аргументов, представлено 1
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(82,23): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(82,27): error C2767: несоответствие размерности массива управляемый: требуется 10 аргументов, представлено 1
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(83,23): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(83,27): error C2767: несоответствие размерности массива управляемый: требуется 10 аргументов, представлено 1
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(85,27): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(85,30): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(86,27): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(86,30): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(89,18): error C2662: void std::vector<std::vector<std::pair<int,int>,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>::clear(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::vector<std::pair<int,int>,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>" в "std::vector<std::vector<std::pair<int,int>,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>> &"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(89,18): error C2662:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(89,18): error C2662:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(89,18): error C2662:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(89,18): error C2662:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(89,5):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1807,23):
+       см. объявление "std::vector<std::vector<std::pair<int,int>,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>::clear"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(89,18):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(90,18): error C2662: void std::vector<std::vector<std::pair<int,int>,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>::clear(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::vector<std::pair<int,int>,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>" в "std::vector<std::vector<std::pair<int,int>,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>> &"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(90,18): error C2662:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(90,18): error C2662:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(90,18): error C2662:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(90,18): error C2662:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(90,5):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1807,23):
+       см. объявление "std::vector<std::vector<std::pair<int,int>,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>::clear"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(90,18):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(91,36): error C2662: unsigned __int64 std::vector<int,std::allocator<int>>::size(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<int,std::allocator<int>>" в "const std::vector<int,std::allocator<int>> &"
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(91,24):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1913,39):
+       см. объявление "std::vector<int,std::allocator<int>>::size"
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(91,36):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(92,36): error C2662: unsigned __int64 std::vector<int,std::allocator<int>>::size(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<int,std::allocator<int>>" в "const std::vector<int,std::allocator<int>> &"
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(92,24):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1913,39):
+       см. объявление "std::vector<int,std::allocator<int>>::size"
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(92,36):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(97,26): error C2662: void std::vector<std::pair<int,int>,std::allocator<_Ty>>::clear(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(97,26): error C2662:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(97,26): error C2662:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(97,26): error C2662:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(97,26): error C2662:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(97,5):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1807,23):
+       см. объявление "std::vector<std::pair<int,int>,std::allocator<_Ty>>::clear"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(97,26):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(98,25): error C2662: void std::vector<std::pair<int,int>,std::allocator<_Ty>>::clear(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(98,25): error C2662:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(98,25): error C2662:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(98,25): error C2662:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(98,25): error C2662:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(98,5):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1807,23):
+       см. объявление "std::vector<std::pair<int,int>,std::allocator<_Ty>>::clear"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(98,25):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(99,22): error C2662: void std::vector<std::pair<int,int>,std::allocator<_Ty>>::clear(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(99,22): error C2662:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(99,22): error C2662:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(99,22): error C2662:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(99,22): error C2662:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(99,5):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1807,23):
+       см. объявление "std::vector<std::pair<int,int>,std::allocator<_Ty>>::clear"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(99,22):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(102,34): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::push_back": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(102,34): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(102,34): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(102,34): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(102,34): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(936,23):
+      может быть "void std::vector<std::pair<int,int>,std::allocator<_Ty>>::push_back(_Ty &&)"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(102,34):
+          void std::vector<std::pair<int,int>,std::allocator<_Ty>>::push_back(_Ty &&): невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(102,13):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(932,23):
+      или       "void std::vector<std::pair<int,int>,std::allocator<_Ty>>::push_back(const _Ty &)"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(102,34):
+          void std::vector<std::pair<int,int>,std::allocator<_Ty>>::push_back(const _Ty &): невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(102,13):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(102,34):
+      при попытке сопоставить список аргументов "(initializer list)"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(103,33): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::push_back": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(103,33): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(103,33): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(103,33): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(103,33): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(936,23):
+      может быть "void std::vector<std::pair<int,int>,std::allocator<_Ty>>::push_back(_Ty &&)"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(103,33):
+          void std::vector<std::pair<int,int>,std::allocator<_Ty>>::push_back(_Ty &&): невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(103,13):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(932,23):
+      или       "void std::vector<std::pair<int,int>,std::allocator<_Ty>>::push_back(const _Ty &)"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(103,33):
+          void std::vector<std::pair<int,int>,std::allocator<_Ty>>::push_back(const _Ty &): невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(103,13):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(103,33):
+      при попытке сопоставить список аргументов "(initializer list)"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(107,68): error C3149: "array<CellState,10>": невозможно использовать здесь этот тип без "^" верхнего уровня
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(114,20): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(114,23): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(118,77): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(118,81): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(125,65): error C3149: "array<CellState,10>": невозможно использовать здесь этот тип без "^" верхнего уровня
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(131,16): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(131,19): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(155,24): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(155,27): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(156,24): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(156,27): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(160,20): error C2440: инициализация: невозможно преобразовать "std::vector<int,std::allocator<int>>" в "std::vector<int,std::allocator<int>> &"
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(160,20):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(163,54): error C2664: "int std::uniform_int_distribution<int>::operator ()<std::mt19937>(_Engine &)": невозможно преобразовать аргумент 1 из "std::mt19937" в "_Engine &"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(163,54): error C2664:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(163,54): error C2664:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(163,54): error C2664:             _Engine=std::mt19937
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(163,54): error C2664:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(163,68):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\random(2400,28):
+       см. объявление "std::uniform_int_distribution<int>::operator ()"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\random(2405,28):
+      может быть "int std::uniform_int_distribution<int>::operator ()(_Engine &,const std::uniform_int_distribution<int>::param_type &)"
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(163,54):
+          "int std::uniform_int_distribution<int>::operator ()(_Engine &,const std::uniform_int_distribution<int>::param_type &)": ожидаются аргументы 2 — 1 предоставлены
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(163,54):
+      при попытке сопоставить список аргументов "(std::mt19937)"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(164,54): error C2664: "int std::uniform_int_distribution<int>::operator ()<std::mt19937>(_Engine &)": невозможно преобразовать аргумент 1 из "std::mt19937" в "_Engine &"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(164,54): error C2664:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(164,54): error C2664:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(164,54): error C2664:             _Engine=std::mt19937
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(164,54): error C2664:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(164,68):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\random(2400,28):
+       см. объявление "std::uniform_int_distribution<int>::operator ()"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\random(2405,28):
+      может быть "int std::uniform_int_distribution<int>::operator ()(_Engine &,const std::uniform_int_distribution<int>::param_type &)"
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(164,54):
+          "int std::uniform_int_distribution<int>::operator ()(_Engine &,const std::uniform_int_distribution<int>::param_type &)": ожидаются аргументы 2 — 1 предоставлены
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(164,54):
+      при попытке сопоставить список аргументов "(std::mt19937)"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(165,57): error C2664: "int std::uniform_int_distribution<int>::operator ()<std::mt19937>(_Engine &)": невозможно преобразовать аргумент 1 из "std::mt19937" в "_Engine &"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(165,57): error C2664:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(165,57): error C2664:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(165,57): error C2664:             _Engine=std::mt19937
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(165,57): error C2664:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(165,64):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\random(2400,28):
+       см. объявление "std::uniform_int_distribution<int>::operator ()"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\random(2405,28):
+      может быть "int std::uniform_int_distribution<int>::operator ()(_Engine &,const std::uniform_int_distribution<int>::param_type &)"
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(165,57):
+          "int std::uniform_int_distribution<int>::operator ()(_Engine &,const std::uniform_int_distribution<int>::param_type &)": ожидаются аргументы 2 — 1 предоставлены
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(165,57):
+      при попытке сопоставить список аргументов "(std::mt19937)"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(174,70): error C3149: "array<CellState,10>": невозможно использовать здесь этот тип без "^" верхнего уровня
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(180,77): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(180,81): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(181,29): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(181,33): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(197,23): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(197,28): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(197,65): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(197,70): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(200,23): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(200,28): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(201,23): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(201,28): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(210,37): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(210,40): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(213,54): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(223,23): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(223,28): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(231,29): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(231,32): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(248,24): error C2662: unsigned __int64 std::vector<int,std::allocator<int>>::size(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<int,std::allocator<int>>" в "const std::vector<int,std::allocator<int>> &"
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(248,12):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1913,39):
+       см. объявление "std::vector<int,std::allocator<int>>::size"
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(248,24):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(248,31): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,45): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::begin": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,45): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,45): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,45): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,45): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1845,44):
+      может быть "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept const"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,45):
+          std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,24):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1840,38):
+      или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,45):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,24):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,45):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,75): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::end": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,75): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,75): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,75): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,75): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1855,44):
+      может быть "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept const"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,75):
+          std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,54):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1850,38):
+      или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,75):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,54):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(254,75):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(258,13): error C3923: GameEngine::GetRandomComputerMove::<lambda_4403cd978c514b36d44c6bb3cf548b30>: в функции-члене класса управляемый невозможно использовать определения локальных классов, структур или объединений
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(258,13): error C3265: нельзя объявлять управляемый "__this" в неуправляемом "GameEngine::GetRandomComputerMove::<lambda_4403cd978c514b36d44c6bb3cf548b30>"
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(258,13):
+      может не объявлять глобальную или статичную переменную или элемент собственного типа, который относится к объекту в куче сборщика мусора
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(256,47): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(256,60): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(257,44): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(257,57): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(259,30): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::end": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(259,30): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(259,30): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(259,30): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(259,30): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1855,44):
+      может быть "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept const"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(259,30):
+          std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(259,9):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1850,38):
+      или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(259,30):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(259,9):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(259,30):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(253,26): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::erase": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(253,26): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(253,26): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(253,26): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(253,26): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1782,27):
+      может быть "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::erase(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>) noexcept(<expr>)"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(253,26):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::erase(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>) noexcept(<expr>): невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(253,5):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(253,26):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(261,30): error C2662: bool std::vector<std::pair<int,int>,std::allocator<_Ty>>::empty(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(261,30): error C2662:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(261,30): error C2662:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(261,30): error C2662:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(261,30): error C2662:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(261,9):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1908,47):
+       см. объявление "std::vector<std::pair<int,int>,std::allocator<_Ty>>::empty"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(261,30):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,66): error C2662: unsigned __int64 std::vector<std::pair<int,int>,std::allocator<_Ty>>::size(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,66): error C2662:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,66): error C2662:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,66): error C2662:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,66): error C2662:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,45):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1913,39):
+       см. объявление "std::vector<std::pair<int,int>,std::allocator<_Ty>>::size"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,66):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,73): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,73): warning C4267:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,73): warning C4267:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,73): warning C4267:             _Ty=int
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(262,73): warning C4267:         ]
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(263,15): error C2664: "int std::uniform_int_distribution<int>::operator ()<std::mt19937>(_Engine &)": невозможно преобразовать аргумент 1 из "std::mt19937" в "_Engine &"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(263,15): error C2664:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(263,15): error C2664:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(263,15): error C2664:             _Engine=std::mt19937
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(263,15): error C2664:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(263,20):
+      Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\random(2400,28):
+       см. объявление "std::uniform_int_distribution<int>::operator ()"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\random(2405,28):
+      может быть "int std::uniform_int_distribution<int>::operator ()(_Engine &,const std::uniform_int_distribution<int>::param_type &)"
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(263,15):
+          "int std::uniform_int_distribution<int>::operator ()(_Engine &,const std::uniform_int_distribution<int>::param_type &)": ожидаются аргументы 2 — 1 предоставлены
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(263,15):
+      при попытке сопоставить список аргументов "(std::mt19937)"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(264,17): error C2678: бинарный "[": не найден оператор, принимающий левый операнд типа "std::vector<std::pair<int,int>,std::allocator<_Ty>>" (или приемлемое преобразование отсутствует)
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(264,17): error C2678:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(264,17): error C2678:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(264,17): error C2678:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(264,17): error C2678:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1937,40):
+      может быть "const _Ty &std::vector<_Ty,std::allocator<_Ty>>::operator [](const unsigned __int64) noexcept const"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(264,17):
+          const _Ty &std::vector<_Ty,std::allocator<_Ty>>::operator [](const unsigned __int64) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(264,17):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1927,34):
+      или       "_Ty &std::vector<_Ty,std::allocator<_Ty>>::operator [](const unsigned __int64) noexcept"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(264,17):
+          _Ty &std::vector<_Ty,std::allocator<_Ty>>::operator [](const unsigned __int64) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(264,17):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(264,17):
+      при попытке сопоставить список аргументов "(std::vector<std::pair<int,int>,std::allocator<_Ty>>, int)"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,53): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::begin": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,53): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,53): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,53): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,53): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1845,44):
+      может быть "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept const"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,53):
+          std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,32):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1840,38):
+      или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,53):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,32):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,53):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,61): error C2088: встроенный оператор "+" не может быть применен к операнду типа "_T"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,61): error C2088:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,61): error C2088:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,61): error C2088:             _T=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<std::pair<int,int>>>>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,61): error C2088:         ]
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,26): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::erase": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,26): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,26): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,26): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,26): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1762,27):
+      может быть "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::erase(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>) noexcept(<expr>)"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,26):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::erase(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>) noexcept(<expr>): невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,5):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(265,26):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(266,12): error C3536: move: не может использоваться до инициализации
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,44): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::begin": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,44): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,44): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,44): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,44): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1845,44):
+      может быть "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept const"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,44):
+          std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,24):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1840,38):
+      или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,44):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,24):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,44):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,73): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::end": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,73): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,73): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,73): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,73): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1855,44):
+      может быть "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept const"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,73):
+          std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,53):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1850,38):
+      или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,73):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,53):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(272,73):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(276,13): error C3923: GameEngine::GetSmartComputerMove::<lambda_5bb28b555a33c447fb04028d60d8f597>: в функции-члене класса управляемый невозможно использовать определения локальных классов, структур или объединений
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(276,13): error C3265: нельзя объявлять управляемый "__this" в неуправляемом "GameEngine::GetSmartComputerMove::<lambda_5bb28b555a33c447fb04028d60d8f597>"
+  (компиляция исходного файла "Program.cpp")
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(276,13):
+      может не объявлять глобальную или статичную переменную или элемент собственного типа, который относится к объекту в куче сборщика мусора
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(274,47): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(274,60): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(275,44): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<array<CellState,10> ^,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(275,57): error C3262: недопустимая индексация массива: 1 измерение указано для 10-размерного "array<CellState,10> ^"
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(277,29): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::end": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(277,29): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(277,29): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(277,29): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(277,29): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1855,44):
+      может быть "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept const"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(277,29):
+          std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(277,9):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1850,38):
+      или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(277,29):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(277,9):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(277,29):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(271,25): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::erase": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(271,25): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(271,25): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(271,25): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(271,25): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1782,27):
+      может быть "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::erase(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>) noexcept(<expr>)"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(271,25):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::erase(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>) noexcept(<expr>): невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(271,5):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(271,25):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,41): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::begin": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,41): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,41): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,41): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,41): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1845,44):
+      может быть "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept const"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,41):
+          std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,24):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1840,38):
+      или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,41):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::begin(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,24):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,41):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,67): error C2663: "std::vector<std::pair<int,int>,std::allocator<_Ty>>::end": нет перегруженной функции с допустимым преобразованием для указателя "this"
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,67): error C2663:         with
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,67): error C2663:         [
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,67): error C2663:             _Ty=std::pair<int,int>
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,67): error C2663:         ]
+  (компиляция исходного файла "Program.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1855,44):
+      может быть "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept const"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,67):
+          std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "const std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,50):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1850,38):
+      или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,67):
+          std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::end(void) noexcept: невозможно преобразовать указатель "this" из "std::vector<std::pair<int,int>,std::allocator<_Ty>>" в "std::vector<std::pair<int,int>,std::allocator<_Ty>> &"
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+              C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,50):
+              Объект из кучи heap (член управляемого класса) не может быть преобразован в собственную ссылку
+      C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(280,67):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(284,13): error C3923: GameEngine::GetSmartComputerMove::<lambda_1feea0740ac9b81370c762ee1c338dfc>: в функции-члене класса управляемый невозможно использовать определения локальных классов, структур или объединений
+  (компиляция исходного файла "Program.cpp")
+  
+C:\Users\fw\Desktop\SeaBattleCpp\SeaBattleCpp\GameEngine.h(284,13): error C1003: число ошибок превышает 100; остановка компиляции
+  (компиляция исходного файла "Program.cpp")
+  
