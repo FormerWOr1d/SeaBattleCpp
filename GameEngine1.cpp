@@ -10,6 +10,7 @@ using namespace SeaBattleCpp;
 GameEngine::GameEngine(GameMode gm) : mode(gm), isPlayer1Turn(true), gameOver(false), winner(0)
 {
     rng = gcnew Random();
+    gameLog = gcnew List<String^>();
     NewGame();
 }
 
@@ -60,6 +61,8 @@ void GameEngine::NewGame()
     isPlayer1Turn = true;
     gameOver = false;
     winner = 0;
+
+    gameLog->Clear();
 }
 
 array<String^>^ GameEngine::SplitNonEmpty(String^ line)
@@ -193,6 +196,8 @@ bool GameEngine::MakeMove(int player, int row, int col, bool% hit, bool% sunk, i
     if (enemyBoard[idx] == CellState::Hit || enemyBoard[idx] == CellState::Miss)
         return false;
 
+    bool result = false; // для логирования
+
     if (enemyBoard[idx] == CellState::Ship) {
         enemyBoard[idx] = CellState::Hit;
         hit = true;
@@ -221,13 +226,21 @@ bool GameEngine::MakeMove(int player, int row, int col, bool% hit, bool% sunk, i
                 break;
             }
         }
-        if (!sunk) return true;
+        // Логируем попадание (с потоплением или без)
+        if (sunk) {
+            AddLogEntry(player, row, col, "Потоплен корабль длины " + sunkLength.ToString());
+        }
+        else {
+            AddLogEntry(player, row, col, "Попадание");
+        }
     }
     else {
         enemyBoard[idx] = CellState::Miss;
         hit = false;
+        AddLogEntry(player, row, col, "Промах");
     }
 
+    // Проверяем, потоплены ли все корабли противника
     bool allSunk = true;
     for (int i = 0; i < enemyShips->Count; i++) {
         if (enemySunk[i]) continue;
@@ -244,11 +257,14 @@ bool GameEngine::MakeMove(int player, int row, int col, bool% hit, bool% sunk, i
     if (allSunk) {
         gameOver = true;
         winner = player;
+        AddLogEntry(player, row, col, "Победа! Все корабли потоплены");
         return true;
     }
 
+    // Если промах – переключить ход
     if (!hit)
         isPlayer1Turn = !isPlayer1Turn;
+
     return true;
 }
 
@@ -347,7 +363,6 @@ System::ValueTuple<int, int> GameEngine::GetSmartComputerMove()
 void GameEngine::NotifySmartResult(int row, int col, bool hit, bool sunk)
 {
     if (hit && !sunk) {
-        // Проверяем наличие попаданий по вертикали и горизонтали относительно текущей клетки
         bool upHit = (row > 0 && player1Board[GetIndex(row - 1, col)] == CellState::Hit);
         bool downHit = (row < SIZE - 1 && player1Board[GetIndex(row + 1, col)] == CellState::Hit);
         bool leftHit = (col > 0 && player1Board[GetIndex(row, col - 1)] == CellState::Hit);
@@ -356,7 +371,6 @@ void GameEngine::NotifySmartResult(int row, int col, bool hit, bool sunk)
         List<ValueTuple<int, int>>^ candidates = gcnew List<ValueTuple<int, int>>();
 
         if (upHit || downHit) {
-            // Корабль вертикальный – добавляем только верхнюю и нижнюю клетки
             if (row > 0) {
                 CellState state = player1Board[GetIndex(row - 1, col)];
                 if (state != CellState::Hit && state != CellState::Miss)
@@ -369,7 +383,6 @@ void GameEngine::NotifySmartResult(int row, int col, bool hit, bool sunk)
             }
         }
         else if (leftHit || rightHit) {
-            // Корабль горизонтальный – добавляем только левую и правую клетки
             if (col > 0) {
                 CellState state = player1Board[GetIndex(row, col - 1)];
                 if (state != CellState::Hit && state != CellState::Miss)
@@ -382,7 +395,6 @@ void GameEngine::NotifySmartResult(int row, int col, bool hit, bool sunk)
             }
         }
         else {
-            // Первое попадание – добавляем все 4 направления
             array<ValueTuple<int, int>>^ dirs = {
                 ValueTuple<int,int>(-1,0),
                 ValueTuple<int,int>(1,0),
@@ -400,7 +412,6 @@ void GameEngine::NotifySmartResult(int row, int col, bool hit, bool sunk)
             }
         }
 
-        // Добавляем кандидатов в очередь, избегая дубликатов
         for each (auto cell in candidates) {
             bool exists = false;
             for each (auto c in smartTargetQueue) {
@@ -414,7 +425,6 @@ void GameEngine::NotifySmartResult(int row, int col, bool hit, bool sunk)
         }
     }
     else if (hit && sunk) {
-        // Корабль потоплен – сбрасываем очередь
         smartTargetQueue->Clear();
     }
 }
@@ -428,7 +438,6 @@ void GameEngine::SaveGame(String^ filename)
         sw->WriteLine(gameOver.ToString());
         sw->WriteLine(winner.ToString());
 
-        // Игрок 1
         sw->WriteLine(player1Ships->Count.ToString());
         for each (auto ship in player1Ships) {
             sw->Write(ship->Count.ToString());
@@ -437,18 +446,15 @@ void GameEngine::SaveGame(String^ filename)
             }
             sw->WriteLine();
         }
-        // флаги
         for each (bool b in player1Sunk) {
             sw->Write(b ? "1 " : "0 ");
         }
         sw->WriteLine();
-        // remainingLengths1
         for each (int val in remainingLengths1) {
             sw->Write(val.ToString() + " ");
         }
         sw->WriteLine();
 
-        // Игрок 2
         sw->WriteLine(player2Ships->Count.ToString());
         for each (auto ship in player2Ships) {
             sw->Write(ship->Count.ToString());
@@ -466,7 +472,6 @@ void GameEngine::SaveGame(String^ filename)
         }
         sw->WriteLine();
 
-        // Доски
         for (int i = 0; i < SIZE * SIZE; i++) {
             sw->Write(((int)player1Board[i]).ToString() + " ");
         }
@@ -476,7 +481,6 @@ void GameEngine::SaveGame(String^ filename)
         }
         sw->WriteLine();
 
-        // Очереди ИИ
         sw->WriteLine(smartAvailableShots->Count.ToString());
         for each (auto cell in smartAvailableShots) {
             sw->WriteLine(cell.Item1.ToString() + " " + cell.Item2.ToString());
@@ -499,14 +503,12 @@ bool GameEngine::LoadGame(String^ filename)
     try {
         StreamReader^ sr = gcnew StreamReader(filename);
 
-        // 1. Общие параметры
         int modeInt = Int32::Parse(sr->ReadLine());
         mode = (GameMode)modeInt;
         isPlayer1Turn = Boolean::Parse(sr->ReadLine());
         gameOver = Boolean::Parse(sr->ReadLine());
         winner = Int32::Parse(sr->ReadLine());
 
-        // Очистка
         player1Ships->Clear();
         player1Sunk->Clear();
         remainingLengths1->Clear();
@@ -514,7 +516,6 @@ bool GameEngine::LoadGame(String^ filename)
         player2Sunk->Clear();
         remainingLengths2->Clear();
 
-        // 2. Игрок 1 – корабли
         int count1 = Int32::Parse(sr->ReadLine());
         for (int i = 0; i < count1; i++) {
             String^ line = sr->ReadLine();
@@ -529,18 +530,15 @@ bool GameEngine::LoadGame(String^ filename)
             }
             player1Ships->Add(ship);
         }
-        // Флаги
         array<String^>^ sunkParts1 = SplitNonEmpty(sr->ReadLine());
         for each (String ^ s in sunkParts1) {
             player1Sunk->Add(s == "1");
         }
-        // Оставшиеся длины
         array<String^>^ remParts1 = SplitNonEmpty(sr->ReadLine());
         for each (String ^ s in remParts1) {
             remainingLengths1->Add(Int32::Parse(s));
         }
 
-        // 3. Игрок 2 – корабли
         int count2 = Int32::Parse(sr->ReadLine());
         for (int i = 0; i < count2; i++) {
             String^ line = sr->ReadLine();
@@ -564,7 +562,6 @@ bool GameEngine::LoadGame(String^ filename)
             remainingLengths2->Add(Int32::Parse(s));
         }
 
-        // 4. Доски
         String^ boardLine1 = sr->ReadLine();
         array<String^>^ board1 = SplitNonEmpty(boardLine1);
         if (board1->Length != SIZE * SIZE) {
@@ -585,7 +582,6 @@ bool GameEngine::LoadGame(String^ filename)
             player2Board[i] = (CellState)Int32::Parse(board2[i]);
         }
 
-        // 5. Очереди ИИ
         smartAvailableShots->Clear();
         int availCount = Int32::Parse(sr->ReadLine());
         for (int i = 0; i < availCount; i++) {
@@ -611,5 +607,56 @@ bool GameEngine::LoadGame(String^ filename)
     catch (Exception^ ex) {
         System::Windows::Forms::MessageBox::Show("Ошибка загрузки: " + ex->Message + "\n\n" + ex->StackTrace, "Ошибка");
         return false;
+    }
+}
+
+// ==================== ЛОГИРОВАНИЕ СТАТИСТИКИ ====================
+
+void GameEngine::AddLogEntry(int player, int row, int col, String^ result)
+{
+    String^ entry = String::Format("Игрок {0}: ({1},{2}) - {3}", player, row, col, result);
+    gameLog->Add(entry);
+}
+
+void GameEngine::SaveStatistics(String^ filename)
+{
+    try {
+        StreamWriter^ sw = gcnew StreamWriter(filename);
+        sw->WriteLine("=== СТАТИСТИКА ИГРЫ ===");
+        sw->WriteLine("Дата и время: " + DateTime::Now.ToString());
+        sw->WriteLine("Режим: " + mode.ToString());
+        sw->WriteLine("Победитель: Игрок " + winner.ToString());
+        sw->WriteLine();
+        sw->WriteLine("--- ЛОГ ХОДОВ ---");
+        for each (String ^ line in gameLog) {
+            sw->WriteLine(line);
+        }
+        sw->WriteLine();
+        sw->WriteLine("--- ИТОГИ ---");
+        int shots1 = 0, shots2 = 0;
+        int hits1 = 0, hits2 = 0;
+        int misses1 = 0, misses2 = 0;
+        int sunk1 = 0, sunk2 = 0;
+        for each (String ^ line in gameLog) {
+            if (line->StartsWith("Игрок 1:")) {
+                shots1++;
+                if (line->Contains("Попадание")) hits1++;
+                else if (line->Contains("Промах")) misses1++;
+                else if (line->Contains("Потоплен")) { hits1++; sunk1++; }
+            }
+            else if (line->StartsWith("Игрок 2:")) {
+                shots2++;
+                if (line->Contains("Попадание")) hits2++;
+                else if (line->Contains("Промах")) misses2++;
+                else if (line->Contains("Потоплен")) { hits2++; sunk2++; }
+            }
+        }
+        sw->WriteLine("Игрок 1: выстрелов {0}, попаданий {1}, промахов {2}, потоплено кораблей {3}", shots1, hits1, misses1, sunk1);
+        sw->WriteLine("Игрок 2: выстрелов {0}, попаданий {1}, промахов {2}, потоплено кораблей {3}", shots2, hits2, misses2, sunk2);
+        sw->Close();
+        delete sw;
+    }
+    catch (Exception^) {
+        // Игнорируем ошибки записи
     }
 }

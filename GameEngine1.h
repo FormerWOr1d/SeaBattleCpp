@@ -19,6 +19,7 @@ private:
 private:
     static array<String^>^ SplitNonEmpty(String^ line);
 
+    List<String^>^ gameLog;
     List<List<System::ValueTuple<int, int>>^>^ player1Ships;
     List<List<System::ValueTuple<int, int>>^>^ player2Ships;
     List<bool>^ player1Sunk;
@@ -47,6 +48,9 @@ private:
 public:
     GameEngine(GameMode gm);
     void NewGame();
+
+    void AddLogEntry(int player, int row, int col, String^ result);
+    void SaveStatistics(String^ filename);
 
     bool PlaceShipManual(int player, int row, int col, int length, bool horizontal);
     void AutoPlaceShips(int player);

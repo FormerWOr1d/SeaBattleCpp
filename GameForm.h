@@ -287,6 +287,8 @@ private:
                     UpdateBoards();
                     lblStatus->Text = "Победил Игрок 2!";
                     lblTurn->Text = "";
+                    String^ statsFileName = "stats_" + DateTime::Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".txt";
+                    engine->SaveStatistics(statsFileName);
                     return;
                 }
 
@@ -374,6 +376,8 @@ private:
                     UpdateBoards();
                     lblStatus->Text = "Победил Игрок 1!";
                     lblTurn->Text = "";
+                    String^ statsFileName = "stats_" + DateTime::Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".txt";
+                    engine->SaveStatistics(statsFileName);
                     return;
                 }
 
@@ -403,6 +407,8 @@ private:
                 if (engine->IsGameOver()) {
                     lblStatus->Text = "Вы победили!";
                     lblTurn->Text = "";
+                    String^ statsFileName = "stats_" + DateTime::Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".txt";
+                    engine->SaveStatistics(statsFileName);
                     return;
                 }
                 if (!hit) {
@@ -464,6 +470,8 @@ private:
                     engine->ForceGameOver(1);
                     lblStatus->Text = "Победа!";
                     lblTurn->Text = "";
+                    String^ statsFileName = "stats_" + DateTime::Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".txt";
+                    engine->SaveStatistics(statsFileName);
                     UpdateBoards();
                     return;
                 }
@@ -471,6 +479,8 @@ private:
                     engine->ForceGameOver(1);
                     lblStatus->Text = "Ошибка! Победа игрока.";
                     lblTurn->Text = "";
+                    String^ statsFileName = "stats_" + DateTime::Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".txt";
+                    engine->SaveStatistics(statsFileName);
                     UpdateBoards();
                     return;
                 }
@@ -487,6 +497,8 @@ private:
             if (engine->IsGameOver()) {
                 lblStatus->Text = "Компьютер победил!";
                 lblTurn->Text = "";
+                String^ statsFileName = "stats_" + DateTime::Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".txt";
+                engine->SaveStatistics(statsFileName);
                 return;
             }
 
