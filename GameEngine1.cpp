@@ -298,8 +298,8 @@ System::ValueTuple<int, int> GameEngine::GetRandomComputerMove()
     for (int i = smartAvailableShots->Count - 1; i >= 0; i--) {
         int r = smartAvailableShots[i].Item1;
         int c = smartAvailableShots[i].Item2;
-        if (player2Board[GetIndex(r, c)] == CellState::Hit ||
-            player2Board[GetIndex(r, c)] == CellState::Miss)
+        if (player1Board[GetIndex(r, c)] == CellState::Hit ||
+            player1Board[GetIndex(r, c)] == CellState::Miss)
             smartAvailableShots->RemoveAt(i);
     }
     if (smartAvailableShots->Count == 0) return System::ValueTuple<int, int>(-1, -1);
@@ -314,15 +314,15 @@ System::ValueTuple<int, int> GameEngine::GetSmartComputerMove()
     for (int i = smartAvailableShots->Count - 1; i >= 0; i--) {
         int r = smartAvailableShots[i].Item1;
         int c = smartAvailableShots[i].Item2;
-        if (player2Board[GetIndex(r, c)] == CellState::Hit ||
-            player2Board[GetIndex(r, c)] == CellState::Miss)
+        if (player1Board[GetIndex(r, c)] == CellState::Hit ||
+            player1Board[GetIndex(r, c)] == CellState::Miss)
             smartAvailableShots->RemoveAt(i);
     }
     for (int i = smartTargetQueue->Count - 1; i >= 0; i--) {
         int r = smartTargetQueue[i].Item1;
         int c = smartTargetQueue[i].Item2;
-        if (player2Board[GetIndex(r, c)] == CellState::Hit ||
-            player2Board[GetIndex(r, c)] == CellState::Miss)
+        if (player1Board[GetIndex(r, c)] == CellState::Hit ||
+            player1Board[GetIndex(r, c)] == CellState::Miss)
             smartTargetQueue->RemoveAt(i);
     }
 
@@ -347,28 +347,74 @@ System::ValueTuple<int, int> GameEngine::GetSmartComputerMove()
 void GameEngine::NotifySmartResult(int row, int col, bool hit, bool sunk)
 {
     if (hit && !sunk) {
-        array<System::ValueTuple<int, int>>^ dirs = gcnew array<System::ValueTuple<int, int>>{
-            System::ValueTuple<int, int>(-1, 0),
-                System::ValueTuple<int, int>(1, 0),
-                System::ValueTuple<int, int>(0, -1),
-                System::ValueTuple<int, int>(0, 1)
-        };
-        for each (auto delta in dirs) {
-            int nr = row + delta.Item1;
-            int nc = col + delta.Item2;
-            if (nr >= 0 && nr < SIZE && nc >= 0 && nc < SIZE) {
-                int idx = GetIndex(nr, nc);
-                if (player2Board[idx] == CellState::Empty) {
-                    bool exists = false;
-                    for each (auto cell in smartTargetQueue)
-                        if (cell.Item1 == nr && cell.Item2 == nc) { exists = true; break; }
-                    if (!exists)
-                        smartTargetQueue->Add(System::ValueTuple<int, int>(nr, nc));
+        // Проверяем наличие попаданий по вертикали и горизонтали относительно текущей клетки
+        bool upHit = (row > 0 && player1Board[GetIndex(row - 1, col)] == CellState::Hit);
+        bool downHit = (row < SIZE - 1 && player1Board[GetIndex(row + 1, col)] == CellState::Hit);
+        bool leftHit = (col > 0 && player1Board[GetIndex(row, col - 1)] == CellState::Hit);
+        bool rightHit = (col < SIZE - 1 && player1Board[GetIndex(row, col + 1)] == CellState::Hit);
+
+        List<ValueTuple<int, int>>^ candidates = gcnew List<ValueTuple<int, int>>();
+
+        if (upHit || downHit) {
+            // Корабль вертикальный – добавляем только верхнюю и нижнюю клетки
+            if (row > 0) {
+                CellState state = player1Board[GetIndex(row - 1, col)];
+                if (state != CellState::Hit && state != CellState::Miss)
+                    candidates->Add(ValueTuple<int, int>(row - 1, col));
+            }
+            if (row < SIZE - 1) {
+                CellState state = player1Board[GetIndex(row + 1, col)];
+                if (state != CellState::Hit && state != CellState::Miss)
+                    candidates->Add(ValueTuple<int, int>(row + 1, col));
+            }
+        }
+        else if (leftHit || rightHit) {
+            // Корабль горизонтальный – добавляем только левую и правую клетки
+            if (col > 0) {
+                CellState state = player1Board[GetIndex(row, col - 1)];
+                if (state != CellState::Hit && state != CellState::Miss)
+                    candidates->Add(ValueTuple<int, int>(row, col - 1));
+            }
+            if (col < SIZE - 1) {
+                CellState state = player1Board[GetIndex(row, col + 1)];
+                if (state != CellState::Hit && state != CellState::Miss)
+                    candidates->Add(ValueTuple<int, int>(row, col + 1));
+            }
+        }
+        else {
+            // Первое попадание – добавляем все 4 направления
+            array<ValueTuple<int, int>>^ dirs = {
+                ValueTuple<int,int>(-1,0),
+                ValueTuple<int,int>(1,0),
+                ValueTuple<int,int>(0,-1),
+                ValueTuple<int,int>(0,1)
+            };
+            for each (auto delta in dirs) {
+                int nr = row + delta.Item1;
+                int nc = col + delta.Item2;
+                if (nr >= 0 && nr < SIZE && nc >= 0 && nc < SIZE) {
+                    CellState state = player1Board[GetIndex(nr, nc)];
+                    if (state != CellState::Hit && state != CellState::Miss)
+                        candidates->Add(ValueTuple<int, int>(nr, nc));
                 }
             }
         }
+
+        // Добавляем кандидатов в очередь, избегая дубликатов
+        for each (auto cell in candidates) {
+            bool exists = false;
+            for each (auto c in smartTargetQueue) {
+                if (c.Item1 == cell.Item1 && c.Item2 == cell.Item2) {
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists)
+                smartTargetQueue->Add(cell);
+        }
     }
     else if (hit && sunk) {
+        // Корабль потоплен – сбрасываем очередь
         smartTargetQueue->Clear();
     }
 }

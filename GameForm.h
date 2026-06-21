@@ -17,6 +17,7 @@ private:
     GameEngine^ engine;
     GameMode mode;
     bool isPlacingMode;
+    bool hideShipsDuringDelay;
     int currentShipIndex;
     bool placementHorizontal;
     int placingPlayer;
@@ -158,33 +159,42 @@ private:
             for (int j = 0; j < 10; j++) {
                 int idx = GetIndex(i, j);
 
+                // ---- Игрок 1 ----
                 CellState state1 = engine->GetBoard(1)[idx];
                 bool showShip1 = false;
                 if (isPlacingMode) {
                     showShip1 = (state1 == CellState::Ship) && (placingPlayer == 1);
                 }
+                else if (hideShipsDuringDelay) {
+                    showShip1 = false;   // принудительно скрываем все корабли на время задержки
+                }
                 else {
                     if (isPvP) {
+                        // В PvP свои корабли видны только текущему игроку (как было)
                         showShip1 = (state1 == CellState::Ship) && (currentPlayer == 1);
                     }
                     else {
-                        showShip1 = (state1 == CellState::Ship);
+                        showShip1 = (state1 == CellState::Ship); // PvC – всегда видны
                     }
                 }
                 if (cellsPlayer1 && cellsPlayer1[idx])
                     cellsPlayer1[idx]->Image = GetImageForState(state1, showShip1);
 
+                // ---- Игрок 2 ----
                 CellState state2 = engine->GetBoard(2)[idx];
                 bool showShip2 = false;
                 if (isPlacingMode) {
                     showShip2 = (state2 == CellState::Ship) && (placingPlayer == 2);
+                }
+                else if (hideShipsDuringDelay) {
+                    showShip2 = false;
                 }
                 else {
                     if (isPvP) {
                         showShip2 = (state2 == CellState::Ship) && (currentPlayer == 2);
                     }
                     else {
-                        showShip2 = false;
+                        showShip2 = false; // В PvC поле компьютера скрыто
                     }
                 }
                 if (cellsPlayer2 && cellsPlayer2[idx])
@@ -192,6 +202,7 @@ private:
             }
         }
 
+        // Обновление текста хода
         if (!isPlacingMode && !engine->IsGameOver()) {
             String^ turn = currentPlayer == 1 ? "Игрок 1" : (isPvP ? "Игрок 2" : "Компьютер");
             lblTurn->Text = "Ход: " + turn;
@@ -219,7 +230,7 @@ private:
         placingPlayer = 1;
         currentShipIndex = 0;
         placementHorizontal = true;
-        // CreateCells(); // клетки уже созданы в конструкторе
+        
         UpdateBoards();
         lblStatus->Text = "Расставьте корабли для Игрока 1 (левое поле)";
         lblTurn->Text = "Режим расстановки (игрок 1)";
@@ -234,6 +245,7 @@ private:
         System::ValueTuple<int, int>^ pos = safe_cast<System::ValueTuple<int, int>^>(pb->Tag);
         int row = pos->Item1, col = pos->Item2;
 
+        // ---------- Режим расстановки ----------
         if (isPlacingMode) {
             if (placingPlayer == 1) {
                 if (engine->GetRemainingShipsCount(1) == 0) {
@@ -256,27 +268,37 @@ private:
             else {
                 MessageBox::Show("Сейчас расставляет Игрок 2 (правое поле).", "Информация");
             }
-            return;
+            return;   // <-- ВАЖНО: выходим, чтобы не выполнять игровую логику
         }
 
+        // Игра окончена
         if (engine->IsGameOver()) return;
 
+        // ---- PvP: ход игрока 2 (он стреляет по левому полю) ----
         if (engine->GetMode() == GameMode::PvP && engine->GetCurrentPlayer() == 2) {
             bool hit, sunk; int sunkLen;
             if (engine->MakeMove(2, row, col, hit, sunk, sunkLen)) {
+                hideShipsDuringDelay = true;
                 UpdateBoards();
-                System::Threading::Thread::Sleep(500);
+                Application::DoEvents();
+
                 if (engine->IsGameOver()) {
+                    hideShipsDuringDelay = false;
+                    UpdateBoards();
                     lblStatus->Text = "Победил Игрок 2!";
                     lblTurn->Text = "";
                     return;
                 }
+
                 if (!hit) {
                     lblStatus->Text = "Промах! Ход переходит к Игроку 1.";
+                    System::Threading::Thread::Sleep(3000);
                 }
                 else {
                     lblStatus->Text = "Попадание! Ещё ход.";
                 }
+
+                hideShipsDuringDelay = false;
                 UpdateBoards();
             }
             else {
@@ -285,10 +307,20 @@ private:
             return;
         }
 
-        if (engine->GetCurrentPlayer() == 1) {
-            lblStatus->Text = "Сейчас ход Игрока 1. Стреляйте по правому полю!";
+        // ---- PvC: ход компьютера (клик по левому полю бесполезен) ----
+        if (engine->GetMode() != GameMode::PvP && engine->GetCurrentPlayer() == 2) {
+            lblStatus->Text = "Сейчас ход компьютера...";
             return;
         }
+
+        // ---- Игрок 1 (в любом режиме) не должен стрелять по своему полю ----
+        if (engine->GetCurrentPlayer() == 1) {
+            lblStatus->Text = "Это ваше поле! Стреляйте по полю противника (справа).";
+            return;
+        }
+
+        // Запасной вариант
+        lblStatus->Text = "Неверный ход!";
     }
 
     void CellPlayer2_Click(System::Object^ sender, System::EventArgs^ e)
@@ -298,7 +330,9 @@ private:
         System::ValueTuple<int, int>^ pos = safe_cast<System::ValueTuple<int, int>^>(pb->Tag);
         int row = pos->Item1, col = pos->Item2;
 
+        // ---------- Режим расстановки ----------
         if (isPlacingMode) {
+            // Расстановка для игрока 2 (только в PvP)
             if (engine->GetMode() == GameMode::PvP && placingPlayer == 2) {
                 if (engine->GetRemainingShipsCount(2) == 0) {
                     MessageBox::Show("Все корабли расставлены! Нажмите 'Начать игру'.", "Информация");
@@ -318,6 +352,7 @@ private:
                 }
             }
             else {
+                // Если не PvP или не ход игрока 2, то сообщаем, что сейчас расставляет игрок 1
                 MessageBox::Show("Сейчас расставляет Игрок 1 (левое поле).", "Информация");
             }
             return;
@@ -325,26 +360,54 @@ private:
 
         if (engine->IsGameOver()) return;
 
-        if (engine->GetCurrentPlayer() == 1) {
+        // ---- PvP: ход игрока 1 (он стреляет по правому полю) ----
+        if (engine->GetMode() == GameMode::PvP && engine->GetCurrentPlayer() == 1) {
+            bool hit, sunk; int sunkLen;
+            if (engine->MakeMove(1, row, col, hit, sunk, sunkLen)) {
+                // Включаем скрытие кораблей на время задержки
+                hideShipsDuringDelay = true;
+                UpdateBoards();
+                Application::DoEvents();
+
+                if (engine->IsGameOver()) {
+                    hideShipsDuringDelay = false;
+                    UpdateBoards();
+                    lblStatus->Text = "Победил Игрок 1!";
+                    lblTurn->Text = "";
+                    return;
+                }
+
+                if (!hit) {
+                    lblStatus->Text = "Промах! Ход переходит к Игроку 2.";
+                    System::Threading::Thread::Sleep(3000);  // задержка 3 секунды
+                }
+                else {
+                    lblStatus->Text = "Попадание! Ещё ход.";
+                    // при попадании задержки нет
+                }
+
+                hideShipsDuringDelay = false;
+                UpdateBoards();
+            }
+            else {
+                lblStatus->Text = "Неверный ход!";
+            }
+            return;
+        }
+
+        // ---- PvC: ход игрока 1 (стреляет по полю компьютера) ----
+        if (engine->GetMode() != GameMode::PvP && engine->GetCurrentPlayer() == 1) {
             bool hit, sunk; int sunkLen;
             if (engine->MakeMove(1, row, col, hit, sunk, sunkLen)) {
                 UpdateBoards();
-                System::Threading::Thread::Sleep(500);
                 if (engine->IsGameOver()) {
-                    lblStatus->Text = engine->GetMode() == GameMode::PvP ? "Победил Игрок 1!" : "Вы победили!";
+                    lblStatus->Text = "Вы победили!";
                     lblTurn->Text = "";
                     return;
                 }
                 if (!hit) {
-                    lblStatus->Text = "Промах!";
-                    if (engine->GetMode() != GameMode::PvP) {
-                        lblStatus->Text = "Ход компьютера...";
-                        UpdateBoards();
-                        DoComputerMove();
-                    }
-                    else {
-                        lblStatus->Text = "Ход переходит к Игроку 2.";
-                    }
+                    lblStatus->Text = "Промах! Ход компьютера.";
+                    DoComputerMove();   // компьютер делает свой ход
                 }
                 else {
                     lblStatus->Text = "Попадание! Ещё ход.";
@@ -357,15 +420,19 @@ private:
             return;
         }
 
-        if (engine->GetMode() == GameMode::PvP && engine->GetCurrentPlayer() == 2) {
-            lblStatus->Text = "Сейчас ход Игрока 2. Стреляйте по левому полю!";
+        // ---- Ход игрока 2 (или компьютера) ----
+        if (engine->GetCurrentPlayer() == 2) {
+            if (engine->GetMode() == GameMode::PvP) {
+                lblStatus->Text = "Сейчас ход Игрока 2. Стреляйте по левому полю!";
+            }
+            else {
+                lblStatus->Text = "Сейчас ход компьютера...";
+            }
             return;
         }
 
-        if (engine->GetCurrentPlayer() == 2 && engine->GetMode() != GameMode::PvP) {
-            lblStatus->Text = "Сейчас ход компьютера...";
-            return;
-        }
+        // Запасной вариант
+        lblStatus->Text = "Неверный ход!";
     }
 
     void DoComputerMove()
@@ -433,7 +500,7 @@ private:
                 lblStatus->Text = "Компьютер попал! Ещё ход.";
                 lblTurn->Text = "Ход: Компьютер";
                 UpdateBoards();
-                // цикл продолжается
+                
             }
         }
     }
@@ -655,13 +722,12 @@ private:
     }
 
 public:
-    GameForm(GameMode gm) : mode(gm)
+    GameForm(GameMode gm) : mode(gm), hideShipsDuringDelay(false)
     {
         try {
             InitializeComponent();
             LoadImages();
-            CreateCells(); // создаём клетки сразу
-            // NewGame() не вызывается – будет вызван отдельно
+            CreateCells(); 
         }
         catch (Exception^ ex) {
             MessageBox::Show("Ошибка в GameForm: " + ex->Message, "Критическая ошибка");

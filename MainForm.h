@@ -39,16 +39,13 @@ namespace SeaBattleCpp {
 		System::Windows::Forms::PictureBox^ pictureBoxBackground;
 		System::ComponentModel::Container^ components;
 
-		// Обработчики кликов (объявления)
+		
 		
 	protected:
 
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
-		/// </summary>
+		
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
