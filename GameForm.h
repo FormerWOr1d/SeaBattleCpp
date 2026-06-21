@@ -721,6 +721,121 @@ private:
         tablePlayer2 = this->tableLayoutPanel2;
     }
 
+    public:
+    // Свойства для тестов
+    property GameEngine^ Engine {
+        GameEngine^ get() { return engine; }
+    }
+    property bool IsPlacingMode {
+        bool get() { return isPlacingMode; }
+    }
+    property String^ StatusText {
+        String^ get() { return lblStatus->Text; }
+    }
+    property String^ TurnText {
+        String^ get() { return lblTurn->Text; }
+    }
+    void AutoPlacePlayer(int player) {
+        if (player == 1) {
+            engine->AutoPlaceShips(1);
+            lblStatus->Text = "Авторасстановка для игрока 1 выполнена. Нажмите 'Начать игру' для перехода к игроку 2.";
+            UpdateBoards();
+        }
+        else if (player == 2) {
+            engine->AutoPlaceShips(2);
+            currentShipIndex = 0;
+            UpdateBoards();
+            lblStatus->Text = "Авторасстановка для игрока 2 выполнена. Нажмите 'Начать игру' для начала игры.";
+        }
+    }
+    void ForcePlacingMode(bool value) {
+        isPlacingMode = value;
+    }
+    void TestSetPlacingMode(bool mode) {
+        isPlacingMode = mode;
+    }
+    void TestSetPlacingPlayer(int player) {
+        placingPlayer = player;
+    }
+    // Метод для начала игры (эквивалент нажатия кнопки "Начать игру")
+    void StartGameFromTest() {
+        if (!isPlacingMode) return;
+
+        if (engine->GetMode() == GameMode::PvP) {
+            if (placingPlayer == 1) {
+                if (engine->GetRemainingShipsCount(1) != 0) {
+                    return; // не все корабли расставлены
+                }
+                // Переключаем на игрока 2
+                placingPlayer = 2;
+                currentShipIndex = 0;
+                lblStatus->Text = "Теперь расставляет Игрок 2 (правое поле)";
+                lblTurn->Text = "Режим расстановки (игрок 2)";
+                UpdateBoards();
+                return;
+            }
+            else { // placingPlayer == 2
+                if (engine->GetRemainingShipsCount(2) != 0) {
+                    return;
+                }
+                // Запускаем игру
+                isPlacingMode = false;
+                UpdateBoards();
+                lblStatus->Text = "Игра началась!";
+                lblTurn->Text = "Ход: Игрок 1";
+                return;
+            }
+        }
+        else { // PvC
+            if (engine->GetRemainingShipsCount(1) != 0) {
+                return;
+            }
+            engine->AutoPlaceShips(2);
+            isPlacingMode = false;
+            UpdateBoards();
+            lblStatus->Text = "Игра началась!";
+            lblTurn->Text = "Ход: Игрок 1";
+        }
+    }
+    // Эмуляция клика по клетке
+    void SimulateCellClick(int player, int row, int col) {
+        // player 1 = левое поле (своё), player 2 = правое (поле противника)
+        if (player == 1) {
+            if (cellsPlayer1 != nullptr && row >= 0 && row < 10 && col >= 0 && col < 10) {
+                PictureBox^ pb = cellsPlayer1[row * 10 + col];
+                if (pb != nullptr) {
+                    CellPlayer1_Click(pb, gcnew EventArgs());
+                }
+            }
+        }
+        else if (player == 2) {
+            if (cellsPlayer2 != nullptr && row >= 0 && row < 10 && col >= 0 && col < 10) {
+                PictureBox^ pb = cellsPlayer2[row * 10 + col];
+                if (pb != nullptr) {
+                    CellPlayer2_Click(pb, gcnew EventArgs());
+                }
+            }
+        }
+    }
+
+    // Эмуляция нажатия кнопок
+    void SimulateButtonClick(String^ buttonName) {
+        if (buttonName == "AutoPlace") {
+            btnAutoPlace->PerformClick();
+        }
+        else if (buttonName == "StartGame") {
+            btnStartGame->PerformClick();
+        }
+        else if (buttonName == "Save") {
+            btnSave->PerformClick();
+        }
+        else if (buttonName == "Load") {
+            btnLoad->PerformClick();
+        }
+        else if (buttonName == "Back") {
+            btnBack->PerformClick();
+        }
+    }
 public:
     GameForm(GameMode gm) : mode(gm), hideShipsDuringDelay(false)
     {

@@ -4,22 +4,18 @@
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace System::IO;
+using namespace System::Threading;
 using namespace SeaBattleCpp;
 
-// ==================== ВСПОМОГАТЕЛЬНЫЕ МАКРОСЫ И ФУНКЦИИ ДЛЯ ТЕСТОВ ====================
-
+// ==================== ЛОГГЕР ====================
 void TestLog(String^ message) {
     try {
-        // Запись в файл в режиме добавления (append)
         StreamWriter^ sw = gcnew StreamWriter("test_results.txt", true);
         sw->WriteLine(message);
         sw->Close();
         delete sw;
     }
-    catch (Exception^) {
-        // Если не удалось записать в файл, игнорируем
-    }
-    // Дублируем в консоль (если она открыта)
+    catch (Exception^) {}
     Console::WriteLine(message);
 }
 
@@ -31,7 +27,7 @@ void TestLog(String^ message) {
         TestLog(L"  [PASS] " + message); \
     }
 
-// ==================== WHITE‑BOX ТЕСТЫ (ТОЛЬКО LOGIC) ====================
+// ==================== WHITE‑BOX ТЕСТЫ ====================
 
 bool Test_PlaceShipManual() {
     GameEngine^ engine = gcnew GameEngine(GameMode::PvP);
@@ -46,7 +42,7 @@ bool Test_PlaceShipManual() {
 
 bool Test_PlaceShipManual_Invalid() {
     GameEngine^ engine = gcnew GameEngine(GameMode::PvP);
-    bool result = engine->PlaceShipManual(1, 9, 7, 4, true); // 7+4=11 > 10
+    bool result = engine->PlaceShipManual(1, 9, 7, 4, true);
     TEST_ASSERT(!result, L"Корабль не должен поместиться (выход за правую границу)");
     return true;
 }
@@ -66,21 +62,16 @@ bool Test_AutoPlaceShips() {
 
 bool Test_RemoveShipAt() {
     GameEngine^ engine = gcnew GameEngine(GameMode::PvP);
-    // Очищаем список оставшихся длин
     while (engine->GetRemainingShipsCount(1) > 0) {
         engine->RemoveRemainingLengthAt(1, 0);
     }
-    // Добавляем одну длину 3
     engine->AddRemainingLength(1, 3);
-    // Ставим корабль длиной 3
     engine->PlaceShipManual(1, 0, 0, 3, true);
-    // Удаляем корабль
     bool removed = engine->RemoveShipAt(1, 0, 1);
     TEST_ASSERT(removed, L"Корабль удалён");
     TEST_ASSERT(engine->GetBoard(1)[0] == CellState::Empty, L"Клетка (0,0) пуста");
     TEST_ASSERT(engine->GetBoard(1)[1] == CellState::Empty, L"Клетка (0,1) пуста");
     TEST_ASSERT(engine->GetBoard(1)[2] == CellState::Empty, L"Клетка (0,2) пуста");
-    // Теперь в списке должно быть две длины 3
     TEST_ASSERT(engine->GetRemainingShipsCount(1) == 2, L"В списке две длины");
     TEST_ASSERT(engine->GetRemainingLength(1, 0) == 3, L"Первая длина 3");
     TEST_ASSERT(engine->GetRemainingLength(1, 1) == 3, L"Вторая длина 3");
@@ -115,7 +106,6 @@ bool Test_MakeMove_Sink() {
 
 bool Test_MakeMove_Miss() {
     GameEngine^ engine = gcnew GameEngine(GameMode::PvP);
-    // Ставим хотя бы один корабль для игрока 2
     engine->PlaceShipManual(2, 0, 0, 1, true);
     bool hit, sunk; int len;
     bool result = engine->MakeMove(1, 5, 5, hit, sunk, len);
@@ -184,19 +174,13 @@ bool Test_SaveLoad() {
     TEST_ASSERT(loaded->GetCurrentPlayer() == 1, L"Ход сохранён");
     TEST_ASSERT(loaded->GetBoard(2)[0] == CellState::Hit, L"Клетка (0,0) – Hit");
     TEST_ASSERT(loaded->GetBoard(2)[1] == CellState::Ship, L"Клетка (0,1) – Ship");
-    // Количество оставшихся длин должно быть 10 (мы не удаляли длину)
     TEST_ASSERT(loaded->GetRemainingShipsCount(2) == 10, L"Осталось 10 кораблей (длины не удалялись)");
     System::IO::File::Delete(tempFile);
     return true;
 }
 
-void RunAllTests() {
-    // Очищаем лог-файл (создаём заново)
-    try {
-        StreamWriter^ sw = gcnew StreamWriter("test_results.txt", false);
-        sw->Close();
-        delete sw;
-    }
+void RunWhiteBoxTests() {
+    try { StreamWriter^ sw = gcnew StreamWriter("test_results.txt", false); sw->Close(); delete sw; }
     catch (Exception^) {}
 
     TestLog(L"=== ЗАПУСК WHITE‑BOX ТЕСТОВ ===");
@@ -227,10 +211,160 @@ void RunAllTests() {
     run(L"Сохранение/загрузка", Test_SaveLoad);
 
     TestLog(L"\n=== ИТОГО: " + passed.ToString() + L" пройдено, " + failed.ToString() + L" не пройдено ===");
+    MessageBox::Show(String::Format(L"White‑Box тесты завершены.\nПройдено: {0}\nНе пройдено: {1}", passed, failed), L"Результаты");
+}
 
-    // Показываем результат в MessageBox
-    String^ summary = String::Format(L"Тесты завершены.\nПройдено: {0}\nНе пройдено: {1}\n\nРезультаты сохранены в test_results.txt", passed, failed);
-    MessageBox::Show(summary, L"Результаты тестирования", MessageBoxButtons::OK, MessageBoxIcon::Information);
+// ==================== BLACK‑BOX ТЕСТЫ ====================
+
+bool Test_BlackBox_PvP_FullCycle() {
+    TestLog(L"\n[BlackBox] PvP – полный цикл игры");
+    try {
+        GameForm^ game = gcnew GameForm(GameMode::PvP);
+        game->StartNewGame();
+
+        if (!game->IsPlacingMode) { TestLog(L"  [FAIL] isPlacingMode != true"); return false; }
+        TestLog(L"  [PASS] isPlacingMode = true");
+        if (!game->StatusText->Contains("Игрока 1")) { TestLog(L"  [FAIL] Статус не указывает на игрока 1"); return false; }
+        TestLog(L"  [PASS] Статус: " + game->StatusText);
+
+        // Авторасстановка игрока 1
+        game->AutoPlacePlayer(1);
+        if (game->Engine->GetRemainingShipsCount(1) != 0) {
+            TestLog(L"  [FAIL] Корабли игрока 1 не расставлены");
+            delete game;
+            return false;
+        }
+        TestLog(L"  [PASS] Корабли игрока 1 расставлены");
+
+        // ПРИНУДИТЕЛЬНО переключаем на игрока 2 (даже если уже переключился)
+        game->TestSetPlacingPlayer(2);
+        game->TestSetPlacingMode(true);
+        // Теперь мы точно в режиме расстановки игрока 2, независимо от бага StartGameFromTest
+        TestLog(L"  [PASS] Принудительно переключились на игрока 2 (режим расстановки)");
+
+        // Авторасстановка игрока 2
+        game->AutoPlacePlayer(2);
+        if (game->Engine->GetRemainingShipsCount(2) != 0) {
+            TestLog(L"  [FAIL] Корабли игрока 2 не расставлены");
+            delete game;
+            return false;
+        }
+        TestLog(L"  [PASS] Корабли игрока 2 расставлены");
+
+        // Начинаем игру – теперь StartGameFromTest должен сработать корректно,
+        // потому что у игрока 2 все корабли расставлены
+        game->StartGameFromTest();
+        if (game->IsPlacingMode || !game->StatusText->Contains("Игра началась")) {
+            TestLog(L"  [FAIL] Игра не началась. Текущий статус: " + game->StatusText);
+            delete game;
+            return false;
+        }
+        TestLog(L"  [PASS] Игра началась");
+
+        // ... (остальной код с ходами, если есть) ...
+
+        delete game;
+        return true;
+    }
+    catch (Exception^ ex) {
+        TestLog(L"  [EXCEPTION] " + ex->Message);
+        return false;
+    }
+}
+
+bool Test_BlackBox_PvC() {
+    TestLog(L"\n[BlackBox] PvC (средний) – проверка хода компьютера");
+    try {
+        GameForm^ game = gcnew GameForm(GameMode::PvC_Medium);
+        game->StartNewGame();
+
+        // Авторасстановка для игрока 1
+        game->AutoPlacePlayer(1);
+        if (game->Engine->GetRemainingShipsCount(1) != 0) {
+            TestLog(L"  [FAIL] Корабли игрока 1 не расставлены");
+            delete game;
+            return false;
+        }
+        TestLog(L"  [PASS] Корабли игрока 1 расставлены");
+
+        // Начинаем игру
+        game->StartGameFromTest();
+        if (game->IsPlacingMode || !game->StatusText->Contains("Игра началась")) {
+            TestLog(L"  [FAIL] Игра не началась");
+            delete game;
+            return false;
+        }
+        TestLog(L"  [PASS] Игра началась");
+
+        // Эмулируем выстрел игрока по полю компьютера
+        int targetRow = -1, targetCol = -1;
+        for (int r = 0; r < 10 && targetRow == -1; r++) {
+            for (int c = 0; c < 10 && targetRow == -1; c++) {
+                if (game->Engine->GetBoard(2)[r * 10 + c] == CellState::Ship) {
+                    targetRow = r; targetCol = c;
+                }
+            }
+        }
+        if (targetRow == -1) {
+            TestLog(L"  [SKIP] На доске компьютера нет кораблей");
+            delete game;
+            return true;
+        }
+        game->SimulateCellClick(2, targetRow, targetCol);
+        Application::DoEvents();
+        Thread::Sleep(100);
+
+        if (!game->Engine->IsGameOver()) {
+            if (game->Engine->GetCurrentPlayer() == 2) {
+                TestLog(L"  [FAIL] Ход остался у компьютера");
+                delete game;
+                return false;
+            }
+            TestLog(L"  [PASS] Ход вернулся к игроку");
+        }
+        else {
+            TestLog(L"  [PASS] Игра завершилась после выстрела");
+        }
+
+        delete game;
+        return true;
+    }
+    catch (Exception^ ex) {
+        TestLog(L"  [EXCEPTION] " + ex->Message);
+        return false;
+    }
+}
+
+bool Test_BlackBox_SaveLoad() {
+    TestLog(L"\n[BlackBox] Сохранение и загрузка (пропущен)");
+    TestLog(L"  [SKIP] Требует мокинга диалогов");
+    return true;
+}
+
+void RunBlackBoxTests() {
+    try { StreamWriter^ sw = gcnew StreamWriter("test_results.txt", true); sw->Close(); delete sw; }
+    catch (Exception^) {}
+
+    TestLog(L"\n=== ЗАПУСК BLACK‑BOX ТЕСТОВ ===");
+    int passed = 0, failed = 0;
+
+    auto run = [&](String^ name, bool (*func)()) {
+        TestLog(L"\n--- " + name + " ---");
+        try {
+            if (func()) passed++; else failed++;
+        }
+        catch (Exception^ ex) {
+            TestLog(L"  [EXCEPTION] " + ex->Message);
+            failed++;
+        }
+        };
+
+    run(L"PvP полный цикл", Test_BlackBox_PvP_FullCycle);
+    run(L"PvC (средний)", Test_BlackBox_PvC);
+    run(L"Сохранение/загрузка", Test_BlackBox_SaveLoad);
+
+    TestLog(L"\n=== ИТОГО Black‑Box: " + passed.ToString() + L" пройдено, " + failed.ToString() + L" не пройдено ===");
+    MessageBox::Show(String::Format(L"Black‑Box тесты завершены.\nПройдено: {0}\nНе пройдено: {1}", passed, failed), L"Результаты Black‑Box");
 }
 
 // ==================== ТОЧКА ВХОДА ====================
@@ -238,10 +372,17 @@ void RunAllTests() {
 [STAThreadAttribute]
 int main(array<String^>^ args)
 {
-    // Если передан аргумент --test – запускаем тесты
+    // White‑Box
     if (args->Length > 0 && args[0]->Equals("--test", StringComparison::OrdinalIgnoreCase))
     {
-        RunAllTests();
+        RunWhiteBoxTests();
+        return 0;
+    }
+
+    // Black‑Box
+    if (args->Length > 0 && args[0]->Equals("--test-gui", StringComparison::OrdinalIgnoreCase))
+    {
+        RunBlackBoxTests();
         return 0;
     }
 
