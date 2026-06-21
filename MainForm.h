@@ -143,7 +143,7 @@ namespace SeaBattleCpp {
 			this->btnHelp->Name = L"btnHelp";
 			this->btnHelp->Size = System::Drawing::Size(312, 50);
 			this->btnHelp->TabIndex = 7;
-			this->btnHelp->Text = L"РУКОВОДСТВО";
+			this->btnHelp->Text = L"GUIDE";
 			this->btnHelp->UseVisualStyleBackColor = false;
 			this->btnHelp->Click += gcnew System::EventHandler(this, &MainForm::btnHelp_Click);
 			this->btnHelp->MouseEnter += gcnew System::EventHandler(this, &MainForm::btn_MouseEnter);
