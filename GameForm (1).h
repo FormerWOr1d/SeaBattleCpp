@@ -245,7 +245,7 @@ private:
         System::ValueTuple<int, int>^ pos = safe_cast<System::ValueTuple<int, int>^>(pb->Tag);
         int row = pos->Item1, col = pos->Item2;
 
-        // Режим расстановки
+        // ---------- Режим расстановки ----------
         if (isPlacingMode) {
             if (placingPlayer == 1) {
                 if (engine->GetRemainingShipsCount(1) == 0) {
@@ -268,12 +268,13 @@ private:
             else {
                 MessageBox::Show("Сейчас расставляет Игрок 2 (правое поле).", "Информация");
             }
-            return;
+            return;   // <-- ВАЖНО: выходим, чтобы не выполнять игровую логику
         }
 
+        // Игра окончена
         if (engine->IsGameOver()) return;
 
-        // --- PvP: ход игрока 2 стреляет по левому полю ---
+        // ---- PvP: ход игрока 2 (он стреляет по левому полю) ----
         if (engine->GetMode() == GameMode::PvP && engine->GetCurrentPlayer() == 2) {
             bool hit, sunk; int sunkLen;
             if (engine->MakeMove(2, row, col, hit, sunk, sunkLen)) {
@@ -306,18 +307,19 @@ private:
             return;
         }
 
-        // --- Режимы PvC: по левому полю стрелять нельзя (это своё поле) ---
-        if (engine->GetMode() == GameMode::PvC_Medium || engine->GetMode() == GameMode::PvC_Hard) {
-            lblStatus->Text = "Это ваше поле! Стреляйте по правому полю.";
+        // ---- PvC: ход компьютера (клик по левому полю бесполезен) ----
+        if (engine->GetMode() != GameMode::PvP && engine->GetCurrentPlayer() == 2) {
+            lblStatus->Text = "Сейчас ход компьютера...";
             return;
         }
 
-        // --- Если ход игрока 1 в PvP (он должен стрелять по правому полю) ---
-        if (engine->GetMode() == GameMode::PvP && engine->GetCurrentPlayer() == 1) {
-            lblStatus->Text = "Сейчас ход Игрока 1. Стреляйте по правому полю!";
+        // ---- Игрок 1 (в любом режиме) не должен стрелять по своему полю ----
+        if (engine->GetCurrentPlayer() == 1) {
+            lblStatus->Text = "Это ваше поле! Стреляйте по полю противника (справа).";
             return;
         }
 
+        // Запасной вариант
         lblStatus->Text = "Неверный ход!";
     }
 
@@ -328,8 +330,9 @@ private:
         System::ValueTuple<int, int>^ pos = safe_cast<System::ValueTuple<int, int>^>(pb->Tag);
         int row = pos->Item1, col = pos->Item2;
 
-        // Режим расстановки
+        // ---------- Режим расстановки ----------
         if (isPlacingMode) {
+            // Расстановка для игрока 2 (только в PvP)
             if (engine->GetMode() == GameMode::PvP && placingPlayer == 2) {
                 if (engine->GetRemainingShipsCount(2) == 0) {
                     MessageBox::Show("Все корабли расставлены! Нажмите 'Начать игру'.", "Информация");
@@ -349,6 +352,7 @@ private:
                 }
             }
             else {
+                // Если не PvP или не ход игрока 2, то сообщаем, что сейчас расставляет игрок 1
                 MessageBox::Show("Сейчас расставляет Игрок 1 (левое поле).", "Информация");
             }
             return;
@@ -356,10 +360,11 @@ private:
 
         if (engine->IsGameOver()) return;
 
-        // --- PvP: ход игрока 1 стреляет по правому полю ---
+        // ---- PvP: ход игрока 1 (он стреляет по правому полю) ----
         if (engine->GetMode() == GameMode::PvP && engine->GetCurrentPlayer() == 1) {
             bool hit, sunk; int sunkLen;
             if (engine->MakeMove(1, row, col, hit, sunk, sunkLen)) {
+                // Включаем скрытие кораблей на время задержки
                 hideShipsDuringDelay = true;
                 UpdateBoards();
                 Application::DoEvents();
@@ -374,10 +379,11 @@ private:
 
                 if (!hit) {
                     lblStatus->Text = "Промах! Ход переходит к Игроку 2.";
-                    System::Threading::Thread::Sleep(3000);
+                    System::Threading::Thread::Sleep(3000);  // задержка 3 секунды
                 }
                 else {
                     lblStatus->Text = "Попадание! Ещё ход.";
+                    // при попадании задержки нет
                 }
 
                 hideShipsDuringDelay = false;
@@ -389,37 +395,24 @@ private:
             return;
         }
 
-        // --- Режимы PvC: ход игрока (игрок 1) стреляет по полю компьютера ---
-        if ((engine->GetMode() == GameMode::PvC_Medium || engine->GetMode() == GameMode::PvC_Hard) &&
-            engine->GetCurrentPlayer() == 1) {
+        // ---- PvC: ход игрока 1 (стреляет по полю компьютера) ----
+        if (engine->GetMode() != GameMode::PvP && engine->GetCurrentPlayer() == 1) {
             bool hit, sunk; int sunkLen;
             if (engine->MakeMove(1, row, col, hit, sunk, sunkLen)) {
-                hideShipsDuringDelay = true;
                 UpdateBoards();
-                Application::DoEvents();
-
                 if (engine->IsGameOver()) {
-                    hideShipsDuringDelay = false;
-                    UpdateBoards();
                     lblStatus->Text = "Вы победили!";
                     lblTurn->Text = "";
                     return;
                 }
-
                 if (!hit) {
-                    lblStatus->Text = "Промах! Ход компьютера...";
-                    System::Threading::Thread::Sleep(1500);
-                    hideShipsDuringDelay = false;
-                    UpdateBoards();
-                    // Ход компьютера
-                    DoComputerMove();
+                    lblStatus->Text = "Промах! Ход компьютера.";
+                    DoComputerMove();   // компьютер делает свой ход
                 }
                 else {
                     lblStatus->Text = "Попадание! Ещё ход.";
-                    hideShipsDuringDelay = false;
-                    UpdateBoards();
-                    // Попадание – ход остаётся за игроком, компьютер не ходит
                 }
+                UpdateBoards();
             }
             else {
                 lblStatus->Text = "Неверный ход!";
@@ -427,12 +420,18 @@ private:
             return;
         }
 
-        // --- Если в PvP ход игрока 2, он должен стрелять по левому полю ---
-        if (engine->GetMode() == GameMode::PvP && engine->GetCurrentPlayer() == 2) {
-            lblStatus->Text = "Сейчас ход Игрока 2. Стреляйте по левому полю!";
+        // ---- Ход игрока 2 (или компьютера) ----
+        if (engine->GetCurrentPlayer() == 2) {
+            if (engine->GetMode() == GameMode::PvP) {
+                lblStatus->Text = "Сейчас ход Игрока 2. Стреляйте по левому полю!";
+            }
+            else {
+                lblStatus->Text = "Сейчас ход компьютера...";
+            }
             return;
         }
 
+        // Запасной вариант
         lblStatus->Text = "Неверный ход!";
     }
 
