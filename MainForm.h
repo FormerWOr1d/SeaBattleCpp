@@ -86,7 +86,7 @@ namespace SeaBattleCpp {
 			this->btnNewGame->Name = L"btnNewGame";
 			this->btnNewGame->Size = System::Drawing::Size(312, 50);
 			this->btnNewGame->TabIndex = 2;
-			this->btnNewGame->Text = L"НОВАЯ ИГРА";
+			this->btnNewGame->Text = L"NEW GAME";
 			this->btnNewGame->UseVisualStyleBackColor = false;
 			this->btnNewGame->Click += gcnew System::EventHandler(this, &MainForm::btnNewGame_Click);
 			this->btnNewGame->MouseEnter += gcnew System::EventHandler(this, &MainForm::btn_MouseEnter);
