@@ -105,7 +105,7 @@ namespace SeaBattleCpp {
 			this->btnExit->Name = L"btnExit";
 			this->btnExit->Size = System::Drawing::Size(312, 50);
 			this->btnExit->TabIndex = 9;
-			this->btnExit->Text = L"ВЫХОД";
+			this->btnExit->Text = L"EXIT";
 			this->btnExit->UseVisualStyleBackColor = false;
 			this->btnExit->Click += gcnew System::EventHandler(this, &MainForm::btnExit_Click);
 			this->btnExit->MouseEnter += gcnew System::EventHandler(this, &MainForm::btn_MouseEnter);
