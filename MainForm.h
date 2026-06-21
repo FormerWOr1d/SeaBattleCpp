@@ -124,7 +124,7 @@ namespace SeaBattleCpp {
 			this->btnAbout->Name = L"btnAbout";
 			this->btnAbout->Size = System::Drawing::Size(312, 50);
 			this->btnAbout->TabIndex = 8;
-			this->btnAbout->Text = L"О ПРОГРАММЕ";
+			this->btnAbout->Text = L"ABOUT THE PROGRAM";
 			this->btnAbout->UseVisualStyleBackColor = false;
 			this->btnAbout->Click += gcnew System::EventHandler(this, &MainForm::btnAbout_Click);
 			this->btnAbout->MouseEnter += gcnew System::EventHandler(this, &MainForm::btn_MouseEnter);
