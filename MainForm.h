@@ -41,14 +41,12 @@ namespace SeaBattleCpp {
 
 		// Обработчики кликов (объявления)
 		
+		
 	protected:
 
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
-		/// </summary>
+		
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
@@ -86,7 +84,7 @@ namespace SeaBattleCpp {
 			this->btnNewGame->Name = L"btnNewGame";
 			this->btnNewGame->Size = System::Drawing::Size(312, 50);
 			this->btnNewGame->TabIndex = 2;
-			this->btnNewGame->Text = L"NEW GAME";
+			this->btnNewGame->Text = L"НОВАЯ ИГРА";
 			this->btnNewGame->UseVisualStyleBackColor = false;
 			this->btnNewGame->Click += gcnew System::EventHandler(this, &MainForm::btnNewGame_Click);
 			this->btnNewGame->MouseEnter += gcnew System::EventHandler(this, &MainForm::btn_MouseEnter);
@@ -105,7 +103,7 @@ namespace SeaBattleCpp {
 			this->btnExit->Name = L"btnExit";
 			this->btnExit->Size = System::Drawing::Size(312, 50);
 			this->btnExit->TabIndex = 9;
-			this->btnExit->Text = L"EXIT";
+			this->btnExit->Text = L"ВЫХОД";
 			this->btnExit->UseVisualStyleBackColor = false;
 			this->btnExit->Click += gcnew System::EventHandler(this, &MainForm::btnExit_Click);
 			this->btnExit->MouseEnter += gcnew System::EventHandler(this, &MainForm::btn_MouseEnter);
@@ -124,7 +122,7 @@ namespace SeaBattleCpp {
 			this->btnAbout->Name = L"btnAbout";
 			this->btnAbout->Size = System::Drawing::Size(312, 50);
 			this->btnAbout->TabIndex = 8;
-			this->btnAbout->Text = L"ABOUT THE PROGRAM";
+			this->btnAbout->Text = L"О ПРОГРАММЕ";
 			this->btnAbout->UseVisualStyleBackColor = false;
 			this->btnAbout->Click += gcnew System::EventHandler(this, &MainForm::btnAbout_Click);
 			this->btnAbout->MouseEnter += gcnew System::EventHandler(this, &MainForm::btn_MouseEnter);
@@ -143,7 +141,7 @@ namespace SeaBattleCpp {
 			this->btnHelp->Name = L"btnHelp";
 			this->btnHelp->Size = System::Drawing::Size(312, 50);
 			this->btnHelp->TabIndex = 7;
-			this->btnHelp->Text = L"GUIDE";
+			this->btnHelp->Text = L"РУКОВОДСТВО";
 			this->btnHelp->UseVisualStyleBackColor = false;
 			this->btnHelp->Click += gcnew System::EventHandler(this, &MainForm::btnHelp_Click);
 			this->btnHelp->MouseEnter += gcnew System::EventHandler(this, &MainForm::btn_MouseEnter);
@@ -202,8 +200,8 @@ namespace SeaBattleCpp {
 				L"3. По очереди стреляйте по клеткам противника.\n"
 				L"4. Попадание — дополнительный ход.\n"
 				L"5. Режимы: PvP, PvC (средний), PvC (сложный).\n"
-				L"6. Статистика сохраняется в stats.txt.\n"
-				L"7. Сохранение и загрузка игры через меню.",
+				L"6. Сохранение и загрузка игры через меню во время игры.\n"
+				L"7. Логи игр автоматически сохраняются в txt файл после завершения игры.",
 				L"Руководство пользователя",
 				MessageBoxButtons::OK,
 				MessageBoxIcon::Information

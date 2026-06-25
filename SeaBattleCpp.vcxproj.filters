@@ -18,6 +18,9 @@
     <ClCompile Include="MainForm.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Program.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
     <ClCompile Include="ChooseModeForm.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>

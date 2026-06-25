@@ -10,6 +10,7 @@ using namespace SeaBattleCpp;
 GameEngine::GameEngine(GameMode gm) : mode(gm), isPlayer1Turn(true), gameOver(false), winner(0)
 {
     rng = gcnew Random();
+    gameLog = gcnew List<String^>();
     NewGame();
 }
 
@@ -60,6 +61,8 @@ void GameEngine::NewGame()
     isPlayer1Turn = true;
     gameOver = false;
     winner = 0;
+
+    gameLog->Clear();
 }
 
 array<String^>^ GameEngine::SplitNonEmpty(String^ line)
@@ -193,6 +196,8 @@ bool GameEngine::MakeMove(int player, int row, int col, bool% hit, bool% sunk, i
     if (enemyBoard[idx] == CellState::Hit || enemyBoard[idx] == CellState::Miss)
         return false;
 
+    bool result = false; // для логирования
+
     if (enemyBoard[idx] == CellState::Ship) {
         enemyBoard[idx] = CellState::Hit;
         hit = true;
@@ -221,13 +226,21 @@ bool GameEngine::MakeMove(int player, int row, int col, bool% hit, bool% sunk, i
                 break;
             }
         }
-        if (!sunk) return true;
+        // Логируем попадание (с потоплением или без)
+        if (sunk) {
+            AddLogEntry(player, row, col, "Потоплен корабль длины " + sunkLength.ToString());
+        }
+        else {
+            AddLogEntry(player, row, col, "Попадание");
+        }
     }
     else {
         enemyBoard[idx] = CellState::Miss;
         hit = false;
+        AddLogEntry(player, row, col, "Промах");
     }
 
+    // Проверяем, потоплены ли все корабли противника
     bool allSunk = true;
     for (int i = 0; i < enemyShips->Count; i++) {
         if (enemySunk[i]) continue;
@@ -244,11 +257,15 @@ bool GameEngine::MakeMove(int player, int row, int col, bool% hit, bool% sunk, i
     if (allSunk) {
         gameOver = true;
         winner = player;
+        AddLogEntry(player, row, col, "Победа! Все корабли потоплены");
         return true;
     }
 
+    // Если промах – переключить ход
+
     if (!hit)
         isPlayer1Turn = !isPlayer1Turn;
+
     return true;
 }
 
@@ -611,5 +628,56 @@ bool GameEngine::LoadGame(String^ filename)
     catch (Exception^ ex) {
         System::Windows::Forms::MessageBox::Show("Ошибка загрузки: " + ex->Message + "\n\n" + ex->StackTrace, "Ошибка");
         return false;
+    }
+}
+
+// ==================== ЛОГИРОВАНИЕ СТАТИСТИКИ ====================
+
+void GameEngine::AddLogEntry(int player, int row, int col, String^ result)
+{
+    String^ entry = String::Format("Игрок {0}: ({1},{2}) - {3}", player, row, col, result);
+    gameLog->Add(entry);
+}
+
+void GameEngine::SaveStatistics(String^ filename)
+{
+    try {
+        StreamWriter^ sw = gcnew StreamWriter(filename);
+        sw->WriteLine("=== СТАТИСТИКА ИГРЫ ===");
+        sw->WriteLine("Дата и время: " + DateTime::Now.ToString());
+        sw->WriteLine("Режим: " + mode.ToString());
+        sw->WriteLine("Победитель: Игрок " + winner.ToString());
+        sw->WriteLine();
+        sw->WriteLine("--- ЛОГ ХОДОВ ---");
+        for each (String ^ line in gameLog) {
+            sw->WriteLine(line);
+        }
+        sw->WriteLine();
+        sw->WriteLine("--- ИТОГИ ---");
+        int shots1 = 0, shots2 = 0;
+        int hits1 = 0, hits2 = 0;
+        int misses1 = 0, misses2 = 0;
+        int sunk1 = 0, sunk2 = 0;
+        for each (String ^ line in gameLog) {
+            if (line->StartsWith("Игрок 1:")) {
+                shots1++;
+                if (line->Contains("Попадание")) hits1++;
+                else if (line->Contains("Промах")) misses1++;
+                else if (line->Contains("Потоплен")) { hits1++; sunk1++; }
+            }
+            else if (line->StartsWith("Игрок 2:")) {
+                shots2++;
+                if (line->Contains("Попадание")) hits2++;
+                else if (line->Contains("Промах")) misses2++;
+                else if (line->Contains("Потоплен")) { hits2++; sunk2++; }
+            }
+        }
+        sw->WriteLine("Игрок 1: выстрелов {0}, попаданий {1}, промахов {2}, потоплено кораблей {3}", shots1, hits1, misses1, sunk1);
+        sw->WriteLine("Игрок 2: выстрелов {0}, попаданий {1}, промахов {2}, потоплено кораблей {3}", shots2, hits2, misses2, sunk2);
+        sw->Close();
+        delete sw;
+    }
+    catch (Exception^) {
+        // Игнорируем ошибки записи
     }
 }
