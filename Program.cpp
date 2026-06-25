@@ -178,7 +178,27 @@ bool Test_SaveLoad() {
     System::IO::File::Delete(tempFile);
     return true;
 }
+bool Test_PlaceShip_Adjacent() {
+    GameEngine^ engine = gcnew GameEngine(GameMode::PvP);
 
+    // Ставим первый корабль длиной 1 в (0,0)
+    bool result1 = engine->PlaceShipManual(1, 0, 0, 1, true);
+    TEST_ASSERT(result1, L"Первый корабль должен разместиться");
+
+    // Пытаемся поставить второй корабль длиной 1 в (0,1) – касание по стороне
+    bool result2 = engine->PlaceShipManual(1, 0, 1, 1, true);
+    TEST_ASSERT(!result2, L"Корабль не должен разместиться вплотную по горизонтали");
+
+    // Пытаемся поставить второй корабль в (1,1) – диагональное касание
+    bool result3 = engine->PlaceShipManual(1, 1, 1, 1, true);
+    TEST_ASSERT(!result3, L"Корабль не должен разместиться по диагонали");
+
+    // Проверяем, что можно поставить в (2,2) – на расстоянии
+    bool result4 = engine->PlaceShipManual(1, 2, 2, 1, true);
+    TEST_ASSERT(result4, L"Корабль должен разместиться на расстоянии от других");
+
+    return true;
+}
 void RunWhiteBoxTests() {
     try { StreamWriter^ sw = gcnew StreamWriter("test_results.txt", false); sw->Close(); delete sw; }
     catch (Exception^) {}
@@ -209,6 +229,7 @@ void RunWhiteBoxTests() {
     run(L"RandomComputerMove", Test_RandomComputerMove);
     run(L"SmartComputerMove", Test_SmartComputerMove);
     run(L"Сохранение/загрузка", Test_SaveLoad);
+    run(L"PlaceShip вплотную к другому", Test_PlaceShip_Adjacent);
 
     TestLog(L"\n=== ИТОГО: " + passed.ToString() + L" пройдено, " + failed.ToString() + L" не пройдено ===");
     MessageBox::Show(String::Format(L"White‑Box тесты завершены.\nПройдено: {0}\nНе пройдено: {1}", passed, failed), L"Результаты");

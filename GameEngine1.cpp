@@ -262,6 +262,7 @@ bool GameEngine::MakeMove(int player, int row, int col, bool% hit, bool% sunk, i
     }
 
     // Если промах – переключить ход
+
     if (!hit)
         isPlayer1Turn = !isPlayer1Turn;
 
